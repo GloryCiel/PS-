@@ -1,21 +1,6 @@
 #include<iostream>
-#include<vector>
 
 using namespace std;
-
-string PN(long long N)
-{
-    char IOI[2]={'I','O'};
-    string res;
-    for(int i=0;i<2*N+1;++i)
-    {
-        if(i%2==0)
-            res+=IOI[0];
-        else
-            res+=IOI[1];
-    }
-    return res;
-}
 
 int main()
 {
