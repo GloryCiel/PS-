@@ -1,36 +1,26 @@
-#include<iostream>
-using namespace std;
+#include<bits/stdc++.h>
 
-int choose_min(int, int);
+using namespace std;
 
 int main()
 {
-    int N;
-    cin>>N;
-    int* dp = new int[N+1];
-    for(int i=0;i<N+1;++i)
-        dp[i]=0;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 
-    for(int i=2;i<N+1;i++)
+    int N;cin>>N;
+    vector<int>dp(N+1,0);
+    dp[0]=0;dp[1]=0;
+    dp[2]=1;dp[3]=1;
+    for(int i=4;i<=N;++i)
     {
         dp[i]=dp[i-1]+1;
-        if(i%3==0)
-        {
-            dp[i] = choose_min(dp[i],dp[i/3]+1);
-        }
-        if(i%2==0)
-        {
-            dp[i] = choose_min(dp[i],dp[i/2]+1);
-        }
+        if(!(i%3))
+            dp[i]=min(dp[i],dp[i/3]+1);
+        if(!(i%2))
+            dp[i]=min(dp[i],dp[i/2]+1);
     }
-    cout<<dp[N];
-    free(dp);
-}
 
-int choose_min(int a, int b)
-{
-    if(a<=b)
-        return a;
-    else
-        return b;
+    cout<<dp[N];
+
 }
