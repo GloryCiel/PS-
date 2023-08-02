@@ -8,7 +8,7 @@ int main()
     cout.tie(NULL);
 
     int N,M;cin>>N>>M;
-    vector<bool>is_in(M+1,false);
+    vector<bool>is_in(N+1,false);
     vector<int>to_print;
     for(int i=0;i<M;++i)
     {
