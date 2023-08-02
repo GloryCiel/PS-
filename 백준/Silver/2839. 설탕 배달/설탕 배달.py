@@ -1,19 +1,13 @@
 N = int(input())
 
-dp=[-1,-1,-1,1,-1,1]
+cnt=0
 
-for x in range(6,N+1):
-    if(dp[x-3]==-1 and dp[x-5]==-1):
-        dp.append(-1)
-    else:
-        flag = False
-        if(dp[x-3]!=-1):
-            dp.append(dp[x-3]+1)
-            flag = True
-        if(dp[x-5]!=-1):
-            if(flag):
-                dp[x]=min(dp[x],dp[x-5]+1)
-            else:
-                dp.append(dp[x-5]+1)
+while(N>=0):
+    if(N%5==0):
+        cnt+=(N//5)
+        print(cnt)
+        exit(0)
+    N-=3
+    cnt+=1
 
-print(dp[N])
+print(-1)
