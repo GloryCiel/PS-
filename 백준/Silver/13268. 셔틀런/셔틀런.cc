@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int n, k;
+int n;
 void f(int a) {
     if (n <= 0) {
         printf("%d", a);
