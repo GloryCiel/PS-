@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool end_cheese(string S)
+bool end_cheese(const string& S)
 {
     string suffix = "Cheese";
     if(S.size()<suffix.size()) return false;
@@ -27,21 +27,13 @@ int main() {
 
     for(int i=0;i<N;++i)
     {
-        bool is_cheese = end_cheese(names[i]);
-        if(is_cheese) name_of_cheese.insert(names[i]);
+        if(end_cheese(names[i])) name_of_cheese.insert(names[i]);
         if(name_of_cheese.size()==4)
         {
             cout<<"yummy";
             return 0;
         }
     }
-            if(name_of_cheese.size()==4)
-        {
-            cout<<"yummy";
-            return 0;
-        }
-        else{
-            cout<<"sad";
-            return 0;
-        }
+    cout<<"sad";
+    return 0;
 }
