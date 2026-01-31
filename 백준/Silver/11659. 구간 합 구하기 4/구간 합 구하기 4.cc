@@ -1,31 +1,31 @@
-#include<iostream>
-#include<vector>
+#include <bits/stdc++.h>
+
 
 using namespace std;
+
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    int N,M;cin>>N>>M;
-    vector<int> number;
-    int sub_sum=0;
-    for(int i=0;i<N;++i)
+
+    int N,M; cin>>N>>M;
+    vector<int>array(N);
+    vector<int>subarray(N);
+    for (int i=0;i<N;++i)
     {
-        int tmp;cin>>tmp;
-        sub_sum+=tmp;
-        number.push_back(sub_sum);
+        cin>>array[i];
+        if (i==0) subarray[i]=array[i];
+        else subarray[i]=subarray[i-1]+array[i];
     }
-    for(int i=0;i<M;++i)
+    for (int i=0;i<M;++i)
     {
-        int a,b;cin>>a>>b;
-        if(a==1)
-        {
-            cout<<number[b-1]<<'\n';
-        }
-        else
-        {
-            cout<<number[b-1]-number[a-2]<<'\n';
-        }
+        int a,b;cin>>a>>b;a--;b--;
+        if (a==0)cout<<subarray[b]<<'\n';
+        else if (a==b)cout<<array[a]<<'\n';
+        else cout<<subarray[b]-subarray[a-1]<<'\n';
+
     }
+
+
 }
